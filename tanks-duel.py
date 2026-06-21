@@ -780,8 +780,8 @@ def game_loop():
             
             # === СПАВН БОНУСОВ ===
             bonus_timer += 1
-            if bonus_timer % 1200 == 0:  # Каждые 20 секунд
-                if len(bonuses) < 5:  # Может быть до 5 бонусов на карте
+            if bonus_timer % 1200 == 0:
+                if len(bonuses) < 5:
                     spawn_bonus()
             
             # === ПОДБОР БОНУСОВ ===
@@ -802,19 +802,19 @@ def game_loop():
                             bonuses.remove(bonus)
                         elif bonus['type'] == "fire":
                             FIRE_ACTIVE = True
-                            FIRE_TIMER = 480  # 8 секунд
+                            FIRE_TIMER = 480
                             create_explosion(bx, by, (255, 140, 0), 30)
                             bonuses.remove(bonus)
                             print("🔥 Подобрано ОГНЕННОЕ оружие!")
                         elif bonus['type'] == "electro":
                             ELECTRO_ACTIVE = True
-                            ELECTRO_TIMER = 480  # 8 секунд
+                            ELECTRO_TIMER = 480
                             create_explosion(bx, by, (0, 200, 255), 30)
                             bonuses.remove(bonus)
                             print("⚡ Подобрано ЭЛЕКТРИЧЕСКОЕ оружие!")
                         elif bonus['type'] == "double":
                             DOUBLE_ACTIVE = True
-                            DOUBLE_TIMER = 180  # 3 секунды (180 кадров при 60 FPS)
+                            DOUBLE_TIMER = 180
                             create_explosion(bx, by, (255, 50, 50), 30)
                             bonuses.remove(bonus)
                             print("✨ Подобрано ДВОЙНОЙ ВЫСТРЕЛ на 3 секунды!")
@@ -1110,7 +1110,7 @@ def game_loop():
                         
                         # Электрическая пуля замедляет бота
                         if bullet.get('is_electro', False):
-                            BOT_SLOW_TIMER = 120  # 2 секунды
+                            BOT_SLOW_TIMER = 120
                             print("⚡ Бот замедлен на 2 секунды!")
                             create_explosion(bullet['x'], bullet['y'], (0, 200, 255), 40)
                         else:
